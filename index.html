@@ -5,8 +5,8 @@
   <title>Document</title>
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/vue.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/themes/core.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/themes/addons/vue.min.css">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -16,8 +16,7 @@
     window.$docsify = {
   name: '我的笔记',
   repo: '',
-
-  basePath: '/AutoMateBook/', // 👈 关键：指定 GitHub Pages 子目录为根路径
+relativePath: true, // 👈 关键配置
 
   // ====== 侧边栏相关（关键）======
   loadSidebar: true,          // ← 必须开启，才加载 _sidebar.md
@@ -42,5 +41,5 @@
   };
   </script>
   <!-- Docsify resource -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@5"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/docsify.min.js"></script>
 </body>

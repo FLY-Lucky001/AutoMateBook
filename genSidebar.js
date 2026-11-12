@@ -8,7 +8,7 @@ const rootDir = __dirname;
 const scanDir = rootDir;
 
 // 自动忽略的目录
-const ignoreDirs = ["node_modules", ".git", "assets", "img", "images"];
+const ignoreDirs = ["node_modules", ".git", "assets", "img", "images", "photo_001Mitsubishi_1.2"]; // 建议把图片目录也加进来，避免误扫
 
 // 递归收集所有 .md 文件（排除 _ 开头和 README.md 单独处理）
 // 返回 [{ file: "相对路径", depth: 层级深度 }]
@@ -54,7 +54,13 @@ function buildSidebar() {
   let lines = ["- [首页](/)", ""];   // 首页固定
   for (const { file, depth } of mdFiles) {
     const indent = "  ".repeat(depth);   // 每层缩进两个空格
-    lines.push(`${indent}- [${toTitle(file)}](${file})`);
+    
+    // 👇👇👇 这里是核心修改的地方 👇👇👇
+    // 1. 去掉 .md 后缀
+    // 2. 最前面加上 / 代表从根目录开始找（解决路径叠加问题）
+    const linkPath = "/" + file.replace(/\.md$/, "");
+    
+    lines.push(`${indent}- [${toTitle(file)}](${linkPath})`);
   }
   return lines.join("\n");
 }
