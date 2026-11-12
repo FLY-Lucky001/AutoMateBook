@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Document</title>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/vue.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+  name: '我的笔记',
+  repo: '',
+
+  // ====== 侧边栏相关（关键）======
+  loadSidebar: true,          // ← 必须开启，才加载 _sidebar.md
+  subMaxLevel: 3,             // 侧边栏显示到第几级标题（按你的 ### 等）
+  alias: {
+    '/.*/_sidebar.md': '/_sidebar.md'  // 保持根侧边栏
+  },
+
+  // ====== 其他可选 ======
+  search: 'auto',             // 开启搜索（可选，需额外引入插件）
+  maxLevel: 4,                // 内容页渲染到几级标题
+  coverpage: false,
+
+  // 路由变化时给 body 加类
+    routerChange: function (path) {
+    if (path.includes('README')) {
+      document.body.classList.add('page-pref');
+    } else {
+      document.body.classList.remove('page-pref');
+    }
+    }
+  };
+  </script>
+  <!-- Docsify resource -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@5"></script>
+</body>
